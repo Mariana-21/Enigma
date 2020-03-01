@@ -1,8 +1,18 @@
 class Enigma
 
 
-  def encrypt(message, date, key)
-      encrypt_hash = {encryption: "TBD", key: key, date: date}
+  def encrypt(sentence, date, key)
+    # def encode(sentence, shift)
+    # encrypt_hash = {encryption: "TBD", key: key, date: date}
+      all_letters = ("A".."Z").to_a
+      sentence.upcase.chars.map do |letter|
+        if all_letters.include? (letter)
+          index_of_letter = all_letters.find_index(letter)
+          letter = all_letters[index_of_letter - shift]
+        else
+          letter
+        end
+      end.join
   end
 
   def date
@@ -10,34 +20,38 @@ class Enigma
   end
 
   def key
-    key_arr = [1,0,2,3,4]
+    key_arr = [1,5,2,3,4]
       key_arr.map!(&:to_s).join
   end
 
   def offset_key(date)
     square_date = date.to_i ** 2
     offset = square_date.to_s.split(//)
-    offset_array = offset[7..10].map(&:to_i)
+    offset_array = offset[5..8].map(&:to_i)
     # require "pry"; binding.pry
   end
 
-  def shift
+  def shift_hash
     shift_hash = {}
     actual_shift_hash = {}
      act_key = key.split(//).map(&:to_i)
-
+     # require "pry"; binding.pry
     shift_hash = {
-     "A" => act_key[0],
-     "B" => act_key[1],
-     "C" => act_key[2],
-     "D" => act_key[3],
-     "E" => act_key[4]
+     "A" => act_key[0..1].join.to_i,
+     "B" => act_key[1..2].join.to_i,
+     "C" => act_key[2..3].join.to_i,
+     "D" => act_key[3..4].join.to_i
     }
+  end
 
+  def shift
     shift_hash.each do |k, v|
       offset_key(date).each do |key_num|
-        v += key_num
+        shift_hash[k] = v += key_num
+      # require "pry"; binding.pry
       end
     end
+    shift_hash
   end
+
 end
