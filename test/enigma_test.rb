@@ -14,14 +14,14 @@ class EnigmaTest < Minitest::Test
   def test_encrypt
     date = Time.now.strftime("%d%m%y")
     enigma = Enigma.new
-    skip
+
     expected = {
-      encryption: "keder ohulw",
-      key: "10234",            #"02715"
+      encryption: "C GGJVRJMGZ",
+      key: "15234",            #"02715"
       date: date
     }
 
-    assert_equal expected, enigma.encrypt("hello world", date, "10234")
+    assert_equal expected, enigma.encrypt("hello world", date, "15234")
   end
 
   def test_it_can_get_date
@@ -45,18 +45,18 @@ class EnigmaTest < Minitest::Test
     assert_equal [2, 4, 0, 0], enigma.offset_key(date)
   end
 
-  def test_shift_hash
+  def test_shift_nums
     enigma = Enigma.new
     date = Time.now.strftime("%d%m%y")
 
-    expected = {
-      "A"=>15,
-      "B"=>52,
-      "C"=>23,
-      "D"=>34
-    }
+    # expected = {
+    #   "A"=>15,
+    #   "B"=>52,
+    #   "C"=>23,
+    #   "D"=>34
+    # }
 
-    assert_equal expected, enigma.shift_hash
+    assert_equal [15, 52, 23, 34], enigma.shift_nums
   end
 
   def test_it_can_get_shift
@@ -65,22 +65,19 @@ class EnigmaTest < Minitest::Test
     date = Time.now.strftime("%d%m%y")
 
     expected = {
-      "A"=>1,
-      "B"=>0,
-      "C"=>2,
-      "D"=>3,
-      "E"=>4
+      "A"=>17,
+      "B"=>56,
+      "C"=>23,
+      "D"=>34
     }
 
-    assert_equal "TBD", enigma.shift
+    assert_equal expected, enigma.shift
   end
 
-  def test_encode
-
-    skip
+  def test_it_can_encode
     enigma = Enigma.new
     date = Time.now.strftime("%d%m%y")
 
-    assert_equal "TBD", enigma.encode("hello world", 5)
+    assert_equal "C GGJVRJMGZ", enigma.encode("hello world", 5)
   end
 end
