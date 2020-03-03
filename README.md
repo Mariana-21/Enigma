@@ -11,7 +11,7 @@ I feel I will be able to talk about everything with ease
 And explain all of. my logic
 
 
-# Functionality 
+## Functionality ##
   selfscore: 3
   
 # OOP: 
