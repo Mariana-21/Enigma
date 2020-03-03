@@ -9,27 +9,26 @@ require 'mocha/minitest'
 
 class EnigmaTest < Minitest::Test
   def setup
-    # require "pry"; binding.pry
     @enigma = Enigma.new
     @shift = Shift.new('020320', '15234')
-    @act_encrypt = @enigma.encrypt("hello world")
+    @act_encrypt = @enigma.encrypt("hello world", @shift.key, @shift.date)
   end
   def test_it_exsits
 
     assert_instance_of Enigma, @enigma
   end
-  #
-  # def test_encrypt
-  #   skip
-  #   expected = {
-  #     encryption: enigma.encrypt("hello world"),
-  #     key: shift.key,            #"02715"
-  #     date: date
-  #   }
-  #
-  #   assert_equal expected, @enigma.encrypt("hello world", @shift.key, @shift.date)
-  # end
-  #
+
+  def test_encrypt
+
+    expected = {
+      encryption: "aojphjuskvb",
+      key: @shift.key,
+      date: @shift.date
+    }
+
+    assert_equal expected, @enigma.encrypt("hello world", @shift.key, @shift.date)
+  end
+
   def test_it_can_encryption
 
     assert_equal "aojphjuskvb", @enigma.encryption("hello world")
