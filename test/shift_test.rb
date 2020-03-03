@@ -22,4 +22,9 @@ class ShiftTest < Minitest::Test
     assert_equal '15234', @shift.key
     assert_equal '020320', @shift.date
   end
+
+  def test_it_can_get_offset_key
+
+    assert_equal [2, 4, 0, 0], @shift.offset_key('020320')
+  end
 end
