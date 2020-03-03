@@ -21,6 +21,10 @@ class Enigma
     end.join.downcase
   end
 
+  def decrypt(sentence,  key = @shift.key, date = @shift.date)
+    encrypt_hash = {decryption: decryption(sentence), key: "15234", date: date}
+  end
+
   def decryption(message)
     all_letters = ("A".."Z").to_a << " "
     message.upcase.chars.map do |letter|

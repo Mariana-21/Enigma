@@ -33,6 +33,16 @@ class EnigmaTest < Minitest::Test
 
     assert_equal "aojphjuskvb", @enigma.encryption("hello world")
   end
+
+  def test_it_has_decryption
+
+    expected = {
+      decryption: "hello world",
+      key: @shift.key,
+      date: @shift.date
+    }
+    assert_equal expected, @enigma.decrypt("aojphjuskvb", @shift.key, @shift.date)
+  end
   #
   def test_decryption
     assert_equal "hello world", @enigma.decryption("aojphjuskvb")
