@@ -4,10 +4,13 @@ encrypted = File.open(ARGV[0], "r")
 
 incoming_text = encrypted.read
 
-decrypt = @enigma.decrypt(incoming_text, '15234', '020320')[:decryption]
-key = @enigma.decrypt(incoming_text, '15234', '020320')[:key]
-date = @enigma.decrypt(incoming_text, '15234', '020320')[:date]
-new_message = "created #{decrypt}with the key #{key} and the date #{date}"
+key_argv = ARGV[2]
+date_argv = ARGV[3]
+
+decrypt = @enigma.decrypt(incoming_text, key_argv, date_argv)[:decryption]
+key = @enigma.decrypt(incoming_text, key_argv, date_argv)[:key]
+date = @enigma.decrypt(incoming_text, key_argv, date_argv)[:date]
+new_message = "created #{decrypt}with the key #{key_argv} and the date #{date_argv}"
 
 decrypted_message = File.open(ARGV[1], "w")
 
