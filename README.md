@@ -9,3 +9,20 @@ Supposed to be and I'm happy with it, maybe my numeric
 Evaluation would be a 2.8?? 
 I feel I will be able to talk about everything with ease 
 And explain all of. my logic
+
+
+# Functionality 
+  selfscore: 3
+  
+# OOP: 
+  selfscore: 3
+  
+# Ruby convections 
+
+  selfscore : 2.7
+  
+# TDD 
+  selfscore: 2.6
+  
+# Version Control 
+  selfscore: 3
