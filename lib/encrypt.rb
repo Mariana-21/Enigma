@@ -11,7 +11,7 @@ new_message = "created #{encrypt}with the key #{key} and the date #{date}"
 
 encrypted_message = File.open(ARGV[1], "w")
 
-encrypted_message.write(new_message)
+encrypted_message.write(encrypt)
 
 encrypted_message.close
 puts new_message
