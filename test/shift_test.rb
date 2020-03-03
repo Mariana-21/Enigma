@@ -37,4 +37,9 @@ class ShiftTest < Minitest::Test
 
     assert_equal [17, 56, 23, 34], @shift.date_and_offset
   end
+
+  def test_it_can_rotate
+
+    assert_equal 17, @shift.rotate_shift
+  end
 end
