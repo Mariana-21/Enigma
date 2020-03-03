@@ -1,0 +1,7 @@
+require './test/test_helper'
+require './lib/enigma'
+require './lib/shift'
+require 'date'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'mocha/minitest'
