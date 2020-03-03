@@ -32,4 +32,9 @@ class ShiftTest < Minitest::Test
 
     assert_equal [15, 52, 23, 34], @shift.key_pairs
   end
+
+  def test_it_can_combine_date_and_offset
+
+    assert_equal [17, 56, 23, 34], @shift.date_and_offset
+  end
 end

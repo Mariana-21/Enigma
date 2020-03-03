@@ -19,4 +19,11 @@ class Shift
       paired_keys[2..3].join.to_i,
       paired_keys[3..4].join.to_i
   end
+
+  def date_and_offset
+    [ key_pairs[0] += offset_key(date)[0],
+      key_pairs[1] += offset_key(date)[1],
+      key_pairs[2] += offset_key(date)[2],
+      key_pairs[3] += offset_key(date)[3]]
+  end
 end
