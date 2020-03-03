@@ -27,4 +27,9 @@ class ShiftTest < Minitest::Test
 
     assert_equal [2, 4, 0, 0], @shift.offset_key('020320')
   end
+
+  def test_it_can_put_key_numbers_in_pairs
+
+    assert_equal [15, 52, 23, 34], @shift.key_pairs
+  end
 end

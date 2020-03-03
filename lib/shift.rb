@@ -10,4 +10,13 @@ class Shift
     offset = square_date.to_s.split(//)
     offset_array = offset[5..8].map(&:to_i)
   end
+
+  def key_pairs
+     paired_keys = @key.split(//).map(&:to_i)
+     numbers =
+      paired_keys[0..1].join.to_i,
+      paired_keys[1..2].join.to_i,
+      paired_keys[2..3].join.to_i,
+      paired_keys[3..4].join.to_i
+  end
 end
