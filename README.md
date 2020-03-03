@@ -14,15 +14,15 @@ And explain all of. my logic
 ## Functionality ##
   selfscore: 3
   
-# OOP: 
+## OOP: ## 
   selfscore: 3
   
-# Ruby convections 
+## Ruby convections ##
 
   selfscore : 2.7
   
-# TDD 
+## TDD ##
   selfscore: 2.6
   
-# Version Control 
+## Version Control ##
   selfscore: 3
